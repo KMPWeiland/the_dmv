@@ -3,7 +3,8 @@ class Facility
               :address, 
               :phone, 
               :services,
-              :registered_vehicles
+              :registered_vehicles,
+              :collected_fees
 
   def initialize(facility_details,registered_vehicles = [])
     @name = facility_details[:name] 
@@ -11,6 +12,7 @@ class Facility
     @phone = facility_details[:phone]
     @services = []
     @registered_vehicles = []
+    @collected_fees = 0
   end
 
   def add_service(service)
@@ -19,7 +21,9 @@ class Facility
 
   def register_vehicle(vehicle)
     @registered_vehicles << vehicle
+    @collected_fees += 100
   end
+
 end
 
 # methods to create based on interaction pattern:
