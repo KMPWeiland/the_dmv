@@ -39,13 +39,12 @@ RSpec.describe Facility do
     end
   end
 
-  # describe '#register' do
-  #   it 'tracks registered vehicles at each facility / updates the registered vehicles array' do
-  #     @facility_1.update_registered_vehicles
-  #     expect(@facility_1.update_registered_vehicles(@camaro)).to eq()
-  #   end
-  # end
-
-
-
+    describe '#register' do
+      it 'tracks registered vehicles at each facility / updates the registered vehicles array' do
+        @facility_1.register_vehicle(@cruz)
+        expect(@facility_1.registered_vehicles).to eq([@cruz])
+        @facility_1.register_vehicle(@camaro)
+        expect(@facility_1.registered_vehicles).to eq([@cruz, @camaro])
+      end
+  end
 end

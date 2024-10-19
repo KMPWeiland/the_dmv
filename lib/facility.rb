@@ -5,7 +5,7 @@ class Facility
               :services,
               :registered_vehicles
 
-  def initialize(facility_details)
+  def initialize(facility_details,registered_vehicles = [])
     @name = facility_details[:name] 
     @address = facility_details[:address]
     @phone = facility_details[:phone]
@@ -17,7 +17,7 @@ class Facility
     @services << service
   end
 
-  def update_registered_vehicles(vehicle)
+  def register_vehicle(vehicle)
     @registered_vehicles << vehicle
   end
 end
