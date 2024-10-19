@@ -12,8 +12,16 @@ class Registrant
         # @written = license_data[written]
         # @license = license_data[license]
         # @renewed = license_data[renewed]
-        
     end
+
+    def permit?
+        @permit
+    end
+
+    def earn_permit #does have a side effect of flipping the boolean
+        @permit = true
+    end
+
 end
         # def initialize(name, age, permit, license_data)
         #     @name =  name
