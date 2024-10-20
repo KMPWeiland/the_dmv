@@ -20,15 +20,14 @@ class Facility
   end
 
   def register_vehicle(vehicle)
-    @registered_vehicles << vehicle
-      if vehicle.plate_type == :antique
-        @collected_fees += 25
-      elsif vehicle.plate_type == :ev
-        @collected_fees += 200
-      else
-        @collected_fees += 100
-      end
-
+    if vehicle.plate_type == :antique
+      @collected_fees += 25
+    elsif vehicle.plate_type == :ev
+      @collected_fees += 200
+    else
+      @collected_fees += 100
+    end
+      @registered_vehicles << vehicle
   end
 
 end

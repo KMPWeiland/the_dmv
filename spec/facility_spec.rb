@@ -36,6 +36,7 @@ RSpec.describe Facility do
     describe '#registered vehicles' do
       it 'can return an empty array if no vehicles are registered' do
       expect(@facility_1.registered_vehicles).to eq([])
+      expect(@facility_2.registered_vehicles).to eq([])
       end
     end
   
@@ -55,6 +56,7 @@ RSpec.describe Facility do
         expect(@facility_1.collected_fees).to eq(125)
         @facility_1.register_vehicle(@bolt)
         expect(@facility_1.collected_fees).to eq(325)
+        expect(@facility_2.collected_fees).to eq(0)
       end
     end
   end
