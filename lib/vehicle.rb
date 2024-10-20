@@ -14,7 +14,7 @@ class Vehicle
     @make = vehicle_details[:make]
     @model = vehicle_details[:model]
     @engine = vehicle_details[:engine]
-    @registration_date = vehicle_details[:registration_date]
+    @registration_date = nil
   end
 
   def antique?
@@ -24,4 +24,19 @@ class Vehicle
   def electric_vehicle?
     @engine == :ev
   end
+
+  def update_registration_date(date)
+    @registration_date = date
+  end
+
+  def plate_type
+    if electric_vehicle? == true
+      :ev
+    elsif antique? == true
+      :antique
+    else
+      :regular
+    end
+  end
+
 end
