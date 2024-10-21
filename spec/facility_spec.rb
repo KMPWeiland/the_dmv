@@ -75,11 +75,16 @@ RSpec.describe Facility do
         expect(@facility_1.administer_written_test(@registrant_1)).to eq(true) 
       end
 
-      # it 'tests that a registrants license data is updated after a test is administered' do
+      it 'tests that a registrants license data is updated after a test is administered' do
+        expect(@registrant_1.license_data[:written]).to eq(false)
+        administer_written_test(registrant_1)
+        expect(@registrant_1.license_data[:written]).to eq(true)
+      end
+  
       #   @facility_1.add_service('Written Test')
       #   @facility_1.administer_written_test(@registrant_1)
       #   expect(@registrant_1.administer_written_test(@registrant_1)).to eq(true) 
-      end
+      
     end
       
   end
