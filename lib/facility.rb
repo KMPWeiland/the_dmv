@@ -19,15 +19,6 @@ class Facility
     @services << service
   end
 
-  def administer_written_test(registrant)
-    if @services.include?('Written Test') && registrant.age >= 15 && registrant.permit? == true
-      @registrant_1.license_data[:written] = true
-      true
-    else
-      false
-    end
-  end
-
   def register_vehicle(vehicle)
     if vehicle.plate_type == :antique
       @collected_fees += 25
@@ -37,6 +28,33 @@ class Facility
       @collected_fees += 100
     end
       @registered_vehicles << vehicle
+  end
+
+  def administer_written_test(registrant)
+    if @services.include?('Written Test') && registrant.age >= 16 && registrant.permit?
+      registrant.license_data[:written] = true
+      true
+    else
+      false
+    end
+  end
+
+  def administer_road_test(registrant)
+    if @services.include?('Road Test') && registrant.age >= 16 && registrant.license_data[:written] == true
+      registrant.license_data[:license] = true
+      true
+    else
+      false
+    end
+  end
+
+  def renew_drivers_license(registrant)
+    if @services.include?('Renew License') && registrant.license_data[:road] == true
+      registrant.license_data[:renewed] = true
+      true
+    else
+      false
+    end
   end
 
 end
