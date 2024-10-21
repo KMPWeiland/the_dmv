@@ -19,6 +19,15 @@ class Facility
     @services << service
   end
 
+  def administer_written_test(registrant)
+    if @services.include?('Written Test') && registrant.age >= 15 && registrant.permit? == true
+      
+      true
+    else
+      false
+    end
+  end
+
   def register_vehicle(vehicle)
     if vehicle.plate_type == :antique
       @collected_fees += 25
