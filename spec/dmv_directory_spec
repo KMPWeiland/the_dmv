@@ -42,6 +42,23 @@ RSpec.describe DmvDirectory do
         end
     end
 
+    describe '#create_facilities for new.mo_dmv_office_locations'  do
+    it 'returns an array' do
+        @new_mo_dmv_offices = DmvDataService.new.mo_dmv_office_locations
+        facilities = @directory.create_facilities(@new_mo_dmv_offices)
+        
+        expect(facilities).to be_a(Array)
+    end
+
+    it 'test that the first items in the facilities array is a Facility object' do
+    #aka tests that the first element is an instance of the Vehicle class
+        @new_mo_dmv_offices = DmvDataService.new.co_dmv_office_locations
+        facilities = @directory.create_facilities(@new_mo_dmv_offices)
+
+        expect(facilities.first).to be_an_instance_of(Facility)
+    end
+end
+
 
 
 
