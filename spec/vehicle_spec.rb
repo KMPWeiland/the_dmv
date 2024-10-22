@@ -33,4 +33,21 @@ RSpec.describe Vehicle do
       expect(@camaro.electric_vehicle?).to eq(false)
     end
   end
+
+  describe '#register' do
+    it 'updates the registration date when vehicle is registered' do
+      expect(@cruz.registration_date).to eq(nil)
+      @cruz.update_registration_date(Date.new(2023,1,12))
+      expect(@cruz.registration_date).to eq(Date.new(2023,1,12))
+    end
+  end
+
+  describe '#plate_type' do
+  it 'can determine if a vehicle is an ev, antique, or regular' do
+    expect(@cruz.plate_type).to eq(:regular)
+    expect(@bolt.plate_type).to eq(:ev)
+    expect(@camaro.plate_type).to eq(:antique)
+  end
+end
+
 end
