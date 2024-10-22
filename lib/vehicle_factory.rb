@@ -1,5 +1,7 @@
 class VehicleFactory
-    attr_reader :vehicle_data_array
+    attr_reader :vehicle_data_array,
+                :plate_type,
+                :registration_date
 
     # def initialize(vehicle_data_array)
     #     @vehicle_data_array = vehicle_data 
@@ -12,8 +14,12 @@ class VehicleFactory
                 make: vehicle_hash[:make], 
                 model: vehicle_hash[:model], 
                 vin: vehicle_hash[:vin_1_10], 
-                year: vehicle_hash[:year]
+                year: vehicle_hash[:year],
+                registration_date: nil,
+                plate_type: nil
             })
+            # @plate_type = nil
+            # @registration_date = nil
         end
     end
 end
