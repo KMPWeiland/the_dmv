@@ -21,12 +21,17 @@ class Registrant
     def earn_permit #does have a side effect of flipping the boolean
         @permit = true
     end
-            
-    # def update_license_data(key, value)
-    #     if @facility_1.administer_written_test(@registrant_1) == true
-    #       @license_data[key] = value
-    #     end
    
+    # def facility_test_check(facility, registrant)
+    #     if facility.administer_written_test(registrant) == true
+    #       registrant.license_data[:written] = true
+    #     end
+    # end
+    # def update_license_data(key, value)
+    #     if administer_written_test(registrant) == true
+    #       @license_data[:written] = true
+    #     end
+    # end
 
 end
         # def initialize(name, age, permit, license_data)

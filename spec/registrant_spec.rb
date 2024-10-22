@@ -35,6 +35,21 @@ describe Registrant do
 
     # describe "#updates to license data" do
     #   it 'updates written test key to true if registrant has taken the written test' do
+    #     expect(@registrant_1.license_data[:written]).to eq(false)
+
+    #     #call the method
+    #     @registrant_1.facility_test_check(@facility_1, @registrant_1)
+
+
+    #     expect(@registrant_1.license_data[:written]).to eq(true)
+    #   end
+    # end
+
+      # @facility_1.administer_written_test(@registrant)
+
+
+    # describe "#updates to license data" do
+    #   it 'updates written test key to true if registrant has taken the written test' do
     #   # @facility_1.administer_written_test(@registrant)
     #    expect(@registrant_1.license_data[:written]).to eq(false)
     # #    @registrant_1.update_license_data(:written, true)
