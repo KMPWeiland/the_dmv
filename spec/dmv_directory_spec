@@ -5,11 +5,12 @@ require './lib/dmv_data_service'
 RSpec.describe DmvDirectory do
     before(:each) do
       @directory = DmvDirectory.new
-      @new_co_dmv_offices = DmvDataService.new.co_dmv_office_locations
+    #   @new_co_dmv_offices = DmvDataService.new.co_dmv_office_locations
     end
 
-    describe '#create_facilities' do
+    describe '#create_facilities for new.co_dmv_office_locations dataset'  do
         it 'returns an array' do
+            @new_co_dmv_offices = DmvDataService.new.co_dmv_office_locations
             facilities = @directory.create_facilities(@new_co_dmv_offices)
             
             expect(facilities).to be_a(Array)
@@ -17,9 +18,31 @@ RSpec.describe DmvDirectory do
 
         it 'test that the first items in the facilities array is a Facility object' do
         #aka tests that the first element is an instance of the Vehicle class
-        facilities = @directory.create_facilities(@new_co_dmv_offices)
+            @new_co_dmv_offices = DmvDataService.new.co_dmv_office_locations
+            facilities = @directory.create_facilities(@new_co_dmv_offices)
 
             expect(facilities.first).to be_an_instance_of(Facility)
         end
     end
+
+    describe '#create_facilities for new.ny_dmv_office_locations'  do
+        it 'returns an array' do
+            @new_ny_dmv_offices = DmvDataService.new.ny_dmv_office_locations
+            facilities = @directory.create_facilities(@new_ny_dmv_offices)
+            
+            expect(facilities).to be_a(Array)
+        end
+
+        it 'test that the first items in the facilities array is a Facility object' do
+        #aka tests that the first element is an instance of the Vehicle class
+            @new_ny_dmv_offices = DmvDataService.new.co_dmv_office_locations
+            facilities = @directory.create_facilities(@new_ny_dmv_offices)
+
+            expect(facilities.first).to be_an_instance_of(Facility)
+        end
+    end
+
+
+
+
 end
