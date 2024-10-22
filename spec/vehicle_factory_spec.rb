@@ -8,7 +8,7 @@ RSpec.describe VehicleFactory do
       @wa_ev_registrations = DmvDataService.new.wa_ev_registrations
     end
 
-    describe '#create_cake' do
+    describe '#create_vehicles' do
         it 'returns an array of Vehicle Objects' do
             vehicles = @factory.create_vehicles(@wa_ev_registrations)
             
